@@ -26,13 +26,21 @@ namespace Battleship2210_Raketska
         /// </summary>
         /// <param name="coord2D">Comparison coordinate</param>
         /// <returns>Compared coordsd</returns>
-        public bool Equals(Coord2D coord2D)  //might be wrong bc this is just comparing coordinates not memory adress have to override somewhere
+        /* public bool Equals(Coord2D coord2D)  //might be wrong bc this is just comparing coordinates not memory adress have to override somewhere
 
+         {
+             if (coord2D == null) return false;
+           //  if (this.X != coord2D.X) return false;
+           //  if (this.Y != coord2D.Y) return false;
+             if (this.X == coord2D.X && this.Y == coord2D.Y) return true;
+             return false;
+         }*/
+        public override bool Equals(object obj)
         {
-            if (coord2D == null) return false;
-          //  if (this.X != coord2D.X) return false;
-          //  if (this.Y != coord2D.Y) return false;
-            if (this.X == coord2D.X && this.Y == coord2D.Y) return true;
+            if (obj is Coord2D other)
+            {
+                return this.X == other.X && this.Y == other.Y;
+            }
             return false;
         }
         /// <summary>

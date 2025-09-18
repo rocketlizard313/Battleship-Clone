@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Battleship2210_Raketska
 {
-    internal enum DirectionType
+    public enum DirectionType
     {
         Horizontal,
         Vertical 
