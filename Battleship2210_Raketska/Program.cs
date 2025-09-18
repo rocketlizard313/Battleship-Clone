@@ -8,7 +8,7 @@
             //Create ship factory
             ShipFactory shipFactory = new ShipFactory();
 
-            Console.WriteLine("Enter filepath here (leave blank for default):");
+          /*  Console.WriteLine("Enter filepath here:");
             string? relativePath = Console.ReadLine();
 
    
@@ -18,19 +18,17 @@
                 return;
             }
 
-  
             string fullPath = Path.GetFullPath(relativePath);
 
-      
             if (!File.Exists(fullPath))
             {
                 Console.WriteLine($"File not found at: {fullPath}");
                 return;
-            }
+            }*/
 
-            Console.WriteLine($"Valid file path provided: {fullPath}");
+           // Console.WriteLine($"Valid file path provided: {fullPath}");
 
-            List<Ship> newShips = shipFactory.ParseShipFile(relativePath);
+            List<Ship> newShips = shipFactory.ParseShipFile("C:\\Users\\lisar\\Source\\Repos\\Battleship-Clone\\Battleship2210_Raketska\\textFile\\Battleship-TestData\\Battleship-TestData\\Battleship-GoodData.gameboard.txt");
 
             if (newShips.Count == 0)
             {
@@ -43,10 +41,8 @@
                 Console.WriteLine(ship.GetInfo());
             }
 
-
             //Create Game 
             Game game = new(newShips);
-
 
             //Start the game
             game.GameLoop();

@@ -9,17 +9,8 @@ namespace Battleship2210_Raketska
 {
     internal interface IHealth
     {
-        public int GetMaxHealth()
-        {
-            return 0;
-        }
-        public int GetCurrentHealth() 
-        {
-            return 0; 
-        }
-        public bool IsDead()
-        {
-            return true;
-        }
+        public int GetMaxHealth();
+        public int GetCurrentHealth();
+        public bool IsDead();
     }
 }

@@ -8,9 +8,6 @@ namespace Battleship2210_Raketska
 {
     internal interface IInformatic
     {
-        public string GetInfo()
-        {
-            return "";
-        }
+        public string GetInfo();
     }
 }

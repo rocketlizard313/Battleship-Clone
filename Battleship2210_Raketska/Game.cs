@@ -52,6 +52,10 @@ namespace Battleship2210_Raketska
             {
                 EndGame();
             }
+            if (userInput.Equals("info"))
+            {
+
+            }
         }
 
         private void Update()

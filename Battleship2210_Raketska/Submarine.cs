@@ -12,5 +12,6 @@ namespace Battleship2210_Raketska
         {
             return "Submarine";
         }
+
     }
 }

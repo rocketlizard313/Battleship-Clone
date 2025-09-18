@@ -88,12 +88,12 @@ namespace Battleship2210_Raketska
                     return null;
             }
         }
-        public List<Ship> ParseShipFile(string path)
+        public List<Ship> ParseShipFile(string relativePath)
         {
             List<Ship> shipsFromFile = [];
             try
             {
-                using (StreamReader sr = new StreamReader(path))
+                using (StreamReader sr = new StreamReader(relativePath))
                 {
                     string line;
                     while ((line = sr.ReadLine()) != null)
@@ -117,7 +117,7 @@ namespace Battleship2210_Raketska
             }
             catch (FileNotFoundException)
             {
-                Console.WriteLine($"File '{path} not found'");
+                Console.WriteLine($"File '{relativePath} not found'");
             }
 
             return shipsFromFile;

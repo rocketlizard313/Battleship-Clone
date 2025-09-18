@@ -1,6 +1,6 @@
 ﻿namespace Battleship2210_Raketska
 {
-    abstract class Ship : IInformatic
+    abstract class Ship : IInformatic, IHealth
     {
         /// <summary>
         /// Starting position of the ship 
@@ -30,16 +30,13 @@
             Position = position;
             Direction = direction;
             Length = length;
-
             CreateShipPoints();
         }
 
-
         public virtual string GetInfo()
         {
-            return $"{GetName()} {Length}, at {Position} {Direction} | HP";
+            return $"{GetName()} {Length}, at {Position} {Direction} | HP:  | {IsDead()}";
         }
-
 
         public bool CheckIfHit(Coord2D p)
         {
@@ -78,7 +75,24 @@
                 Console.WriteLine($"{item.X},{item.Y}");
             }
         }
+        public bool IsDead()
+        {
+            return true;
+        }
 
+        int IHealth.GetMaxHealth()
+        {
+            throw new NotImplementedException();
+        }
 
+        int IHealth.GetCurrentHealth()
+        {
+            throw new NotImplementedException();
+        }
+
+        bool IHealth.IsDead()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
