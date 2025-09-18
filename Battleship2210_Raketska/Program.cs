@@ -8,13 +8,28 @@
             //Create ship factory
             ShipFactory shipFactory = new ShipFactory();
 
-            //Prompt user for file here 
-            Console.WriteLine("Enter filepath here:");
-            string relativePath = Console.ReadLine();
+            Console.WriteLine("Enter filepath here (leave blank for default):");
+            string? relativePath = Console.ReadLine();
 
-            // If user just presses Enter, fall back to default relative path
-            relativePath.Trim();
-            
+   
+            if (relativePath.IndexOfAny(Path.GetInvalidPathChars()) >= 0)
+            {
+                Console.WriteLine("Invalid characters in path. Exiting program.");
+                return;
+            }
+
+  
+            string fullPath = Path.GetFullPath(relativePath);
+
+      
+            if (!File.Exists(fullPath))
+            {
+                Console.WriteLine($"File not found at: {fullPath}");
+                return;
+            }
+
+            Console.WriteLine($"Valid file path provided: {fullPath}");
+
             List<Ship> newShips = shipFactory.ParseShipFile(relativePath);
 
             if (newShips.Count == 0)
